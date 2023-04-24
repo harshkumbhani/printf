@@ -6,7 +6,7 @@
 #    By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 11:39:57 by hkumbhan          #+#    #+#              #
-#    Updated: 2023/04/21 17:31:54 by hkumbhan         ###   ########.fr        #
+#    Updated: 2023/04/24 14:14:03 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libftprintf.a
 
 # Set the compiler and compiler flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g 
 
 # Set the source files for the library
 SRCS = ft_printf.c ft_printnum.c ft_printstr.c
@@ -63,12 +63,20 @@ re: fclean all
 # Specify that these rules do not correspond to a file name
 .PHONY: all clean fclean re
 
-test_all:testa testb
+test_a:test1 test2
 
-testa: all
+test1: all
 	@$(CC) $(NAME) main.c -o tester.out  -D PARAM=\"BYE\"
-	@./tester.out >> result
+	@./tester.out
 
-testb: all
-	@$(CC) $(NAME) main.c -o tester.out -D PARAM=\"HELLO\"
-	@./tester.out >> result
+test2: all
+	@$(CC) $(NAME) main.c -o tester.out -D PARAM=\"HELLO\ World!\"
+	@./tester.out
+
+test3: all
+	@$(CC) $(NAME) main.c -o tester.out -D PARAM=\"\"
+	@./tester.out
+
+test4: all
+	@$(CC) $(NAME) main.c -o tester.out -D PARAM=\ \ \ \ 1234
+	@./tester.out
