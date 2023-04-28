@@ -1,3 +1,13 @@
+<p align="center">
+  <img src="https://example.com/path/to/c_logo.png" alt="C Logo" width="200">
+</p>
+
+<h1 align="center">ft_printf</h1>
+
+<p align="center">
+  A custom implementation of the <code>printf</code> function in C.
+</p>
+
 # ft_printf
 
 This repository contains an implementation of the `ft_printf` project, a recreation of the standard C library function `printf`. The objective of this project is to understand variadic functions, formatting, and handling different data types in C programming.
