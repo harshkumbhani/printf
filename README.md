@@ -1,7 +1,8 @@
 <p align="center">
-  <img src="https://example.com/path/to/c_logo.png" alt="C Logo" width="200">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=git,kubernetes,docker,c,vim" />
+  </a>
 </p>
-
 <h1 align="center">ft_printf</h1>
 
 <p align="center">
