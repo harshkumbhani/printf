@@ -11,9 +11,7 @@
 
 # ft_printf 🖨️
 
-![C Logo]([https://skillicons.dev/icons?i=c])
-
-Welcome to **ft_printf**, a custom implementation of the famous `printf` function in C. This project is designed to help you learn and understand C programming, variadic functions, and formatting output.
+Welcome to **ft_printf**, a custom **PARTIAL** implementation of the famous `printf` function in C. This project is designed to help you learn and understand C programming, variadic functions, and formatting output.
 
 ## 📚 Introduction
 
