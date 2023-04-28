@@ -11,7 +11,7 @@
 
 # ft_printf 🖨️
 
-![C Logo](https://your-logo-url-here.com/c_logo.png)
+![C Logo]([https://skillicons.dev/icons?i=c])
 
 Welcome to **ft_printf**, a custom implementation of the famous `printf` function in C. This project is designed to help you learn and understand C programming, variadic functions, and formatting output.
 
