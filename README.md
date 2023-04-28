@@ -6,7 +6,7 @@
 <h1 align="center">ft_printf</h1>
 
 <p align="center">
-  A custom **partial** implementation of the <code>printf</code> function in C.
+  A custom <strong>partial<strong> implementation of the <code>printf</code> function in C.
 </p>
 
 # ft_printf
