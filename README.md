@@ -19,8 +19,8 @@ Welcome to **ft_printf**, a custom **PARTIAL** implementation of the famous `pri
 
 ## 🔧 Function Prototype
 
-```c
-int ft_printf(const char *format, ...);```
+
+int ft_printf(const char *format, ...);
 
 
 ## About printf
