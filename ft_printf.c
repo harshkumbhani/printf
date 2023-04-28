@@ -3,37 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:39:41 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/04/26 01:15:03 by harsh            ###   ########.fr       */
+/*   Updated: 2023/04/28 10:55:59 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_formattype(char c, va_list ap)
+int	ft_formattype(char c, va_list ap, int *len)
 {
-	int	len;
+	int	temp_len;
 
-	len = 0;
+	temp_len = 0;
 	if (c == 'c')
-		len += ft_putchar(va_arg(ap, int));
+		temp_len = ft_putchar(va_arg(ap, int));
 	else if (c == 's')
-		len += ft_putstr(va_arg(ap, char *));
-	else if (c == 'x')
-		len += ft_puthex(va_arg(ap, unsigned int), "0123456789abcdef");
-	else if (c == 'X')
-		len += ft_puthex(va_arg(ap, unsigned int), "0123456789ABCDEF");
+		temp_len = ft_putstr(va_arg(ap, char *));
 	else if (c == 'd' || c == 'i')
-		len += ft_putnbr((long)va_arg(ap, int));
+		temp_len = ft_putnbr((long)va_arg(ap, int));
 	else if (c == 'u')
-		len += ft_putnbr(va_arg(ap, unsigned int));
-	else if (c == '%')
-		len += ft_putchar('%');
+		temp_len = ft_putnbr(va_arg(ap, unsigned int));
+	else if (c == 'x')
+		temp_len = ft_puthex(va_arg(ap, unsigned int), "0123456789abcdef");
+	else if (c == 'X')
+		temp_len = ft_puthex(va_arg(ap, unsigned int), "0123456789ABCDEF");
 	else if (c == 'p')
-		len += ft_putptr((long int)va_arg(ap, void *));
-	return (len);
+		temp_len = ft_putptr((size_t)va_arg(ap, void *));
+	else if (c == '%')
+		temp_len = ft_putchar('%');
+	if (temp_len < 0)
+		return (-1);
+	*len += temp_len;
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
@@ -49,12 +52,13 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*str == '%')
 		{
-			str++;
-			len += ft_formattype(*str, ap);
+			if (*(str + 1) && (ft_formattype(*(++str), ap, &len) < 0))
+				return (-1);
 		}
 		else
 		{
-			ft_putchar(*str);
+			if (ft_putchar(*str) < 0)
+				return (-1);
 			len++;
 		}
 		str++;
