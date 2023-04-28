@@ -11,7 +11,7 @@
 
 # ft_printf
 
-This repository contains an implementation of the `ft_printf` project, a recreation of the standard C library function `printf`. The objective of this project is to understand variadic functions, formatting, and handling different data types in C programming.
+This repository contains an implementation of the `ft_printf` project, a **partial** recreation of the standard C library function `printf`. The objective of this project is to understand variadic functions, formatting, and handling different data types in C programming.
 
 ## About printf
 
