@@ -9,9 +9,21 @@
   A custom <strong>partial</strong> implementation of the <code>printf</code> function in C.
 </p>
 
-# ft_printf
+# ft_printf 🖨️
 
-This repository contains an implementation of the `ft_printf` project, a **partial** recreation of the standard C library function `printf`. The objective of this project is to understand variadic functions, formatting, and handling different data types in C programming.
+![C Logo](https://your-logo-url-here.com/c_logo.png)
+
+Welcome to **ft_printf**, a custom implementation of the famous `printf` function in C. This project is designed to help you learn and understand C programming, variadic functions, and formatting output.
+
+## 📚 Introduction
+
+`ft_printf` is a function that formats and prints data to the standard output. It supports various format specifiers, flags, and data types, making it a versatile tool for displaying information in your C programs.
+
+## 🔧 Function Prototype
+
+```c
+int ft_printf(const char *format, ...);
+
 
 ## About printf
 
