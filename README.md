@@ -6,6 +6,26 @@ This repository contains an implementation of the `ft_printf` project, a recreat
 
 The `printf` function is a popular function in the C standard library (stdio.h) used for formatted output. It sends formatted output to the standard output stream (stdout) based on a format string and a variable number of arguments.
 
+# Variadic Functions
+
+Variadic functions are functions that can take a variable number of arguments. The standard C library function `printf` is a well-known example of a variadic function.
+
+## About Variadic Functions
+
+Variadic functions can be declared with an ellipsis (`...`) as the last parameter in the parameter list, indicating that the function accepts a variable number of arguments. To handle the arguments passed to a variadic function, the C standard library provides a set of macros in the `stdarg.h` header.
+
+### stdarg.h Macros
+
+The following macros are used to handle variadic function arguments:
+
+1. `va_list`: A type used to declare a variable that will store the argument list.
+
+2. `va_start(ap, param)`: Initializes the `va_list` object `ap` to start reading arguments after the last named parameter `param`.
+
+3. `va_arg(ap, type)`: Retrieves the next argument from the `va_list` object `ap` with the specified `type`.
+
+4. `va_end(ap)`: Cleans up the `va_list` object `ap` after all arguments have been read.
+
 ### Format Specifiers
 
 The format string consists of ordinary characters, escape sequences, and format specifiers, which are used to specify the type and format of the data to be printed. The following table lists some common format specifiers and their meanings:
