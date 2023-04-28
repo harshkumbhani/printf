@@ -20,7 +20,7 @@ Welcome to **ft_printf**, a custom **PARTIAL** implementation of the famous `pri
 ## 🔧 Function Prototype
 
 ```c
-int ft_printf(const char *format, ...);
+int ft_printf(const char *format, ...);```
 
 
 ## About printf
@@ -47,21 +47,18 @@ The following macros are used to handle variadic function arguments:
 
 4. `va_end(ap)`: Cleans up the `va_list` object `ap` after all arguments have been read.
 
-### Format Specifiers
+## 📄 Format Specifiers
 
-The format string consists of ordinary characters, escape sequences, and format specifiers, which are used to specify the type and format of the data to be printed. The following table lists some common format specifiers and their meanings:
-
-| Specifier | Description                                     |
-| --------- | ----------------------------------------------- |
-| `%c`      | Character                                       |
-| `%s`      | String of characters                            |
-| `%d`      | Signed decimal integer                          |
-| `%i`      | Signed decimal integer                          |
-| `%u`      | Unsigned decimal integer                        |
-| `%x`      | Unsigned hexadecimal integer (lowercase letters)|
-| `%X`      | Unsigned hexadecimal integer (uppercase letters)|
-| `%p`      | Pointer address                                 |
-| `%%`      | Literal percent character (`%`)                 |
+| Specifier | Description                                      |
+|:---------:|--------------------------------------------------|
+|     %c    | Character                                        |
+|     %s    | String                                           |
+|  %d or %i | Signed decimal integer                           |
+|     %u    | Unsigned decimal integer                         |
+|     %x    | Unsigned hexadecimal integer (lowercase letters) |
+|     %X    | Unsigned hexadecimal integer (uppercase letters) |
+|     %p    | Pointer address                                  |
+|     %%    | A literal '%' character                          |
 
 ### Flags
 
