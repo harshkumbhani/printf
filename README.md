@@ -60,11 +60,6 @@ The following macros are used to handle variadic function arguments:
 |     %p    | Pointer address                                  |
 |     %%    | A literal '%' character                          |
 
-### Flags
-
-The `ft_printf` implementation in this repository also supports the following flags:
-
-To be added
 
 ## Edge Cases
 
