@@ -20,18 +20,12 @@ Welcome to **ft_printf**, a custom **PARTIAL** implementation of the famous `pri
 ## 🔧 Function Prototype
 
 
-int ft_printf(const char *format, ...);
+```int ft_printf(const char *format, ...);```  [(manual)](https://man7.org/linux/man-pages/man3/printf.3.html)
 
-
-## About printf
-
-The `printf` function is a popular function in the C standard library (stdio.h) used for formatted output. It sends formatted output to the standard output stream (stdout) based on a format string and a variable number of arguments.
 
 # Variadic Functions
 
 Variadic functions are functions that can take a variable number of arguments. The standard C library function `printf` is a well-known example of a variadic function.
-
-## About Variadic Functions
 
 Variadic functions can be declared with an ellipsis (`...`) as the last parameter in the parameter list, indicating that the function accepts a variable number of arguments. To handle the arguments passed to a variadic function, the C standard library provides a set of macros in the `stdarg.h` header.
 
@@ -71,7 +65,6 @@ When implementing `ft_printf`, it is important to consider the following edge ca
 
 3. Large numbers and edge values: The function should be able to handle the largest and smallest representable values for each data type (e.g., `INT_MIN`, `INT_MAX`, `UINT_MAX`, and pointer addresses).
 
-4. Precision and field width: The function should respect the specified field width and precision for each format specifier, including correct handling of flags like `0` and `-`.
 
 5. Incorrect or unsupported format specifiers: The function should be able to handle unexpected or unsupported format specifiers gracefully.
 
