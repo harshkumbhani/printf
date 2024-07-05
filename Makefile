@@ -79,6 +79,7 @@ fclean: clean
 	else \
 		$(LOG) "No library to clean."; \
 	fi
+	@rm -rf *.dSYM *.out
 	
 norm: $(SRCS)
 	$(shell norminette | grep Error)
