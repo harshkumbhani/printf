@@ -3,3 +3,4 @@ program
 printf
 .ccls-cache
 libftprintf.a
+*.o
