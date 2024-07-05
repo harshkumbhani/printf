@@ -1,15 +1,21 @@
-<p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,vscode,c" />
-  </a>
-</p>
-<h1 align="center">ft_printf</h1>
+<div align="center">
+  <h1>
+    🖨️ ft_printf
+  </h1>
+  <p>
+    <b><i>A custom <strong>partial</strong> implementation of the <code>printf</code> function from C standard library</i></b>
+  </p>
+  <p>
+    Developed using&nbsp&nbsp
+    <a href="https://skillicons.dev">
+      <img src="https://skillicons.dev/icons?i=c,vscode,git,bash" />
+    </a>
+  </p>
+</div>
 
-<p align="center">
-  A custom <strong>partial</strong> implementation of the <code>printf</code> function in C.
-</p>
 
-# ft_printf 🖨️
+
+# ft_printf 
 
 Welcome to **ft_printf**, a custom **PARTIAL** implementation of the famous `printf` function in C. This project is designed to help you learn and understand C programming, variadic functions, and formatting output.
 
