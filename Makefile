@@ -1,59 +1,84 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/12 11:39:57 by hkumbhan          #+#    #+#              #
-#    Updated: 2023/04/24 14:14:03 by hkumbhan         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+################################################################################
+###############                     CONFIG                        ##############
+################################################################################
 
-# Set the name of the library
-NAME = libftprintf.a
+NAME := libftprintf.a # name of the library
+CC := cc
+CFLAGS = -Wall -Wextra -Werror -g $(addprefix -I, $(INC_DIRS))
 
-# Set the compiler and compiler flags
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g 
+################################################################################
+###############                 PRINT OPTIONS                     ##############
+################################################################################
 
-# Set the source files for the library
-SRCS = ft_printf.c ft_printnum.c ft_printstr.c
+G := \033[32m
+X := \033[0m
+BO := $(shell tput bold)
+LOG := printf "[$(BO)$(G)ⓘ INFO$(X)] %s\n"
 
-# Set the source files for the library
-#BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-				# ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+################################################################################
+###############                  DIRECTORIES                      ##############
+################################################################################
 
-# Set the object files for mandatoru and bonus part of the libray 
-OBJS = $(SRCS:%.c=%.o)
-#BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
+OBJ_DIR := _obj
+INC_DIRS := ./include
+SRC_DIRS := ./srcs
 
-# Define the "all" rule
+# Tell the Makefile where headers and source files are
+vpath %.h $(INC_DIRS)
+vpath %.c $(SRC_DIRS)
+
+################################################################################
+###############                  SOURCE FILES                     ##############
+################################################################################
+
+SRCS := ft_printf.c ft_printnum.c ft_printstr.c
+
+OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
+
+################################################################################
+########                         COMPILING                      ################
+################################################################################
+
 all: $(NAME)
 
 # Define the rule to create the library
 # Used Options
-# r : Insert the objs intot eh archive
+# r : Insert the objs into the archive
 # c : Create the archive if it doesn't exist
 # s : Create an index for the archive
+
 # s option is an efficiency option helpful when 
 # linking programs with the library
 $(NAME): $(OBJS)
 	@ar rcs $@ $^
 
-# Define the "bonus" rule
-#bonus: $(BONUS_OBJS) $(OBJS)
-#	ar rcs $(NAME) $^ 
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@$(LOG) "Compiling $(notdir $@)"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@$(LOG) "Creating object directory."
+	@mkdir -p $@
 
 # Define the rule to compile the source files
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm	-f $(OBJS) $(BONUS_OBJS)
+	@if [ -d "$(OBJ_DIR)" ]; then \
+		$(LOG) "Cleaning $(notdir $(OBJ_DIR))"; \
+		rm -rf $(OBJ_DIR); \
+	else \
+		$(LOG) "No objects to clean."; \
+	fi
 
 fclean: clean
-	rm -f $(NAME)
+	@if [ -f $(NAME) ]; then \
+		$(LOG) "Cleaning $(notdir $(NAME))"; \
+		rm -f $(NAME); \
+	else \
+		$(LOG) "No library to clean."; \
+	fi
 	
 norm: $(SRCS)
 	$(shell norminette | grep Error)
@@ -65,18 +90,14 @@ re: fclean all
 
 test_a:test1 test2
 
-test1: all
-	@$(CC) $(NAME) main.c -o tester.out  -D PARAM=\"BYE\"
+test1:
+	@$(CC) $(CFLAGS) $(NAME) ./srcs/main.c -o tester.out  -D PARAM=\"BYE\"
 	@./tester.out
 
-test2: all
-	@$(CC) $(NAME) main.c -o tester.out -D PARAM=\"HELLO\ World!\"
+test2:
+	@$(CC) $(CFLAGS) $(NAME) ./srcs/main.c -o tester.out -D PARAM=\"HELLO\ World!\"
 	@./tester.out
 
-test3: all
-	@$(CC) $(NAME) main.c -o tester.out -D PARAM=\"\"
-	@./tester.out
-
-test4: all
-	@$(CC) $(NAME) main.c -o tester.out -D PARAM=\ \ \ \ 1234
+test3:
+	@$(CC) $(CFLAGS) $(NAME) ./srcs/main.c -o tester.out -D PARAM=\"\"
 	@./tester.out

@@ -4,3 +4,5 @@ printf
 .ccls-cache
 libftprintf.a
 *.o
+*.dSYM
+tester.out

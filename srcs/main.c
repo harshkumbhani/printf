@@ -6,7 +6,7 @@
 /*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 16:33:18 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/07/05 11:01:24 by harsh            ###   ########.fr       */
+/*   Updated: 2024/07/05 12:14:03 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 int	main()
 {
 	int len[2];
-	printf("\n\n");
-	len[0] = printf("\001\002\007\v\010\f\r\n");
+	printf("\n----- PRINTF -----\n");
+	len[0] = printf(PARAM);
 	//len[0] = printf("This is a string %s", 123);
-	printf("\n\n");
-	len[1] = ft_printf("\001\002\007\v\010\f\r\n");
+	printf("\n----- FT_PRINTF -----\n");
+	len[1] = ft_printf(PARAM);
 	//len[1] = printf("This is a string %s", 123);
 	printf("\n\nlen of printf = %d\nlen of ftprintf = %d\n",len[0],len[1]);
 }
